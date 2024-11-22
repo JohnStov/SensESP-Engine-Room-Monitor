@@ -126,7 +126,7 @@ void setup() {
   oxidising_input->connect_to(new SKOutput<float>(
     "environment.inside.engineroom.NO2_level",
     "/sensors/mics_6814/NO2",
-    new SKMetadata("", "Engine Room NO2", "Engine NO2")
+    new SKMetadata("Ohms", "Engine Room NO2", "Engine NO2")
   ));
 
   auto* reducing_input = new RepeatSensor<float>(
@@ -136,7 +136,7 @@ void setup() {
   reducing_input->connect_to(new SKOutput<float>(
     "environment.inside.engineroom.CO_level",
     "/sensors/mics_6814/CO",
-    new SKMetadata("", "Engine Room CO", "Engine CO")
+    new SKMetadata("Ohms", "Engine Room CO", "Engine CO")
   ));
 
   auto* nh3_input = new RepeatSensor<float>(
@@ -146,7 +146,7 @@ void setup() {
   nh3_input->connect_to(new SKOutput<float>(
     "environment.inside.engineroom.NH3_level",
     "/sensors/mics_6814/NH3",
-    new SKMetadata("", "Engine Room NH3", "Engine NH3")
+    new SKMetadata("Ohms", "Engine Room NH3", "Engine NH3")
   ));
 
   // Start networking, SK server connections and other SensESP internals
