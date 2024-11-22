@@ -57,7 +57,7 @@ void setup() {
   BreakoutMICS6814* mics_6814 = new BreakoutMICS6814();
   mics_6814->init();
   mics_6814->set_heater(true);
-  mics_6814->set_led(0,128,0);
+  mics_6814->set_led(0,8,0);
 
   if (scd_sensor.begin() == false)
   {
@@ -93,7 +93,7 @@ void setup() {
   );
 
   temperature_input->connect_to(new SKOutput<float>(
-    "engineroom.temperature.ambient",
+    "environment.inside.engineRoom.temperature",
     "/sensors/SCD4x/Temperature",
     new SKMetadata("K", "Engine Room Ambient Temperature", "EngineRoom Temp")
   ));
