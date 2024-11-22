@@ -71,7 +71,7 @@ void setup() {
   );
 
   co2_input->connect_to(new SKOutput<uint16_t>(
-    "engineroom.CO2_level",
+    "environment.inside.engineroom.CO2_level",
     "/sensors/SCD4x/CO2",
     new SKMetadata("ppm", "Engine Room CO2 PPM", "Engine C02")
   ));
@@ -80,12 +80,23 @@ void setup() {
       new OneWireTemperature(dts, 1000, "/exhaustTemperature/oneWire");
 
   exhaust_temp->connect_to(new Linear(1.0, 0.0, "/exhaustTemperature/linear"))
-      ->connect_to(new SKOutputFloat("engineroom.temperature.exhaust",
+      ->connect_to(new SKOutputFloat("environment.inside.engineroom.temperature.exhaust",
                                      "/exhaustTemperature/skPath",
                                      new SKMetadata("K", 
                                                     "Exhaust Temperature", 
                                                     "Engine Exhaust Temperature",
                                                     "Exhaust Temp")));
+
+  auto* alternator_temp =
+      new OneWireTemperature(dts, 1000, "/alternatorTemperature/oneWire");
+
+  alternator_temp->connect_to(new Linear(1.0, 0.0, "/alternatorTemperature/linear"))
+      ->connect_to(new SKOutputFloat("environment.inside.engineroom.temperature.alternator",
+                                     "/alternatorTemperature/skPath",
+                                     new SKMetadata("K", 
+                                                    "Alternator Temperature", 
+                                                    "Engine Alternator Temperature",
+                                                    "Alternator Temp")));
 
 
   auto* temperature_input = new RepeatSensor<float>(
@@ -103,7 +114,7 @@ void setup() {
   );
 
   humidity_input->connect_to(new SKOutput<float>(
-    "engineroom.humidity",
+    "environment.inside.engineroom.humidity",
     "/sensors/SCD4x/Humidity",
     new SKMetadata("%", "Engine Room Humidity (%RH)", "EngineRoom Humidity")
   ));
@@ -113,7 +124,7 @@ void setup() {
   );
 
   oxidising_input->connect_to(new SKOutput<float>(
-    "engineroom.NO2_level",
+    "environment.inside.engineroom.NO2_level",
     "/sensors/mics_6814/NO2",
     new SKMetadata("", "Engine Room NO2", "Engine NO2")
   ));
@@ -123,7 +134,7 @@ void setup() {
   );
 
   reducing_input->connect_to(new SKOutput<float>(
-    "engineroom.CO_level",
+    "environment.inside.engineroom.CO_level",
     "/sensors/mics_6814/CO",
     new SKMetadata("", "Engine Room CO", "Engine CO")
   ));
@@ -133,7 +144,7 @@ void setup() {
   );
 
   nh3_input->connect_to(new SKOutput<float>(
-    "engineroom.NH3_level",
+    "environment.inside.engineroom.NH3_level",
     "/sensors/mics_6814/NH3",
     new SKMetadata("", "Engine Room NH3", "Engine NH3")
   ));
