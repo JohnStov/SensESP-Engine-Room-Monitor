@@ -8,3 +8,4 @@ Uses SensESP to measure the following in the engine compartment:
   * NO2
   * NH3
   * Exhaust temperature
+  * Alternator Temperature
