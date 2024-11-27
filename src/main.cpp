@@ -116,7 +116,7 @@ void setup() {
   humidity_input->connect_to(new SKOutput<float>(
     "environment.inside.engineroom.humidity",
     "/sensors/SCD4x/Humidity",
-    new SKMetadata("%", "Engine Room Humidity (%RH)", "EngineRoom Humidity")
+    new SKMetadata("%RH", "Engine Room Humidity (%RH)", "EngineRoom Humidity")
   ));
 
   auto* oxidising_input = new RepeatSensor<float>(
