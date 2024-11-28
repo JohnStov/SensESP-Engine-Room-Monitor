@@ -80,7 +80,7 @@ void setup() {
       new OneWireTemperature(dts, 1000, "/exhaustTemperature/oneWire");
 
   exhaust_temp->connect_to(new Linear(1.0, 0.0, "/exhaustTemperature/linear"))
-      ->connect_to(new SKOutputFloat("environment.inside.engineroom.temperature.exhaust",
+      ->connect_to(new SKOutputFloat("propulsion.0.exhaustTemperature",
                                      "/exhaustTemperature/skPath",
                                      new SKMetadata("K", 
                                                     "Exhaust Temperature", 
@@ -91,7 +91,7 @@ void setup() {
       new OneWireTemperature(dts, 1000, "/alternatorTemperature/oneWire");
 
   alternator_temp->connect_to(new Linear(1.0, 0.0, "/alternatorTemperature/linear"))
-      ->connect_to(new SKOutputFloat("environment.inside.engineroom.temperature.alternator",
+      ->connect_to(new SKOutputFloat("propulsion.0.alternatorTemperature",
                                      "/alternatorTemperature/skPath",
                                      new SKMetadata("K", 
                                                     "Alternator Temperature", 
