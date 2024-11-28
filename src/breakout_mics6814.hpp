@@ -10,7 +10,7 @@ namespace pimoroni {
     // Constants
     //--------------------------------------------------
   public:
-    static const uint8_t DEFAULT_I2C_ADDRESS  = 0x19;
+    static const uint8_t DEFAULT_I2C_ADDRESS  = 0x18;
     static constexpr float DEFAULT_BRIGHTNESS = 1.0f; //Effectively the maximum fraction of the period that the LED will be on
     static const uint32_t DEFAULT_TIMEOUT     = 1;
     static const uint32_t DEFAULT_ADC_TIMEOUT = 1;
