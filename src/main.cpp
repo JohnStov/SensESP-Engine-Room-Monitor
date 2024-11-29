@@ -91,7 +91,7 @@ void setup() {
       new OneWireTemperature(dts, 1000, "/alternatorTemperature/oneWire");
 
   alternator_temp->connect_to(new Linear(1.0, 0.0, "/alternatorTemperature/linear"))
-      ->connect_to(new SKOutputFloat("propulsion.0.alternatorTemperature",
+      ->connect_to(new SKOutputFloat("electrical.alternators.0.temperature",
                                      "/alternatorTemperature/skPath",
                                      new SKMetadata("K", 
                                                     "Alternator Temperature", 
@@ -114,9 +114,9 @@ void setup() {
   );
 
   humidity_input->connect_to(new SKOutput<float>(
-    "environment.inside.engineroom.humidity",
+    "environment.inside.engineroom.relativeHumidity",
     "/sensors/SCD4x/Humidity",
-    new SKMetadata("%RH", "Engine Room Humidity (%RH)", "EngineRoom Humidity")
+    new SKMetadata("ratio", "Engine Room Relative Humidity (%RH)", "EngineRoom Humidity")
   ));
 
   auto* oxidising_input = new RepeatSensor<float>(
